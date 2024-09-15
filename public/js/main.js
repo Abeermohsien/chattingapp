@@ -10,6 +10,7 @@ const { username, room } = Qs.parse(location.search, {
 
 const socket = io();
 
+
 // Join chatroom
 socket.emit('joinRoom', { username, room });
 
@@ -72,12 +73,8 @@ function outputRoomName(room) {
 
 // Add users to DOM
 function outputUsers(users) {
-  userList.innerHTML = '';
-  users.forEach((user) => {
-    const li = document.createElement('li');
-    li.innerText = user.username;
-    userList.appendChild(li);
-  });
+  userList.innerHTML = `
+  ${users.map(user => `<li>${user.username}</li>`).join('')}`;
 }
 
 //Prompt the user before leave chat room

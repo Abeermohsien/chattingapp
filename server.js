@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const botName = 'chatapp bot';
 
-io.on('connection', socket => {
+io.on('connection', (socket) => {
     socket.on('joinRoom', ({ username, room }) => {
         const user = userJoin(socket.id, username, room);
         socket.join(user.room);

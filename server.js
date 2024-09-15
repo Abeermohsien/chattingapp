@@ -6,7 +6,7 @@ const formatMessage = require('./utils/messages');
 const { userjoin, getCurrentUser, userLeave, getRoomUsers } = require('./utils/users');
 
 const app = express();
-const server = http.createserver(app);
+const server = http.createServer(app);
 app.use(express.static(path.join(__dirname, 'public')));
 
 const botName = 'chatapp bot';

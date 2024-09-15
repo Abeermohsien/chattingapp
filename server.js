@@ -18,7 +18,7 @@ io.on('connection', socket => {
         socket.emit('message', formatMessage(botName, 'welome'));
         socket.broadcast
         .to(user.room)
-        .emit('message',formatMessage(botName, `${USER.USERNAME} has joined`));
+        .emit('message', formatMessage(botName, `${USER.USERNAME} has joined`));
         io.to(user.room).emit('roomUsers', {
             room: user.room,
             users: getRoomUsers(user.room)
